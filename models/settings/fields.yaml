@@ -1,0 +1,43 @@
+fields:
+    company_name:
+        label: 'codeclutch.contact::lang.plugin.model.company_name'
+        span: full
+        type: text
+tabs:
+    fields:
+        address_street:
+            label: 'codeclutch.contact::lang.plugin.model.address_street'
+            span: auto
+            type: text
+            tab: 'codeclutch.contact::lang.plugin.model.address'
+        address_number:
+            label: 'codeclutch.contact::lang.plugin.model.address_number'
+            span: auto
+            type: text
+            tab: 'codeclutch.contact::lang.plugin.model.address'
+        address_postcode:
+            label: 'codeclutch.contact::lang.plugin.model.address_postcode'
+            span: auto
+            type: text
+            tab: 'codeclutch.contact::lang.plugin.model.address'
+        address_city:
+            label: 'codeclutch.contact::lang.plugin.model.address_city'
+            span: auto
+            type: text
+            tab: 'codeclutch.contact::lang.plugin.model.address'
+        social_media:
+            label: 'codeclutch.contact::lang.plugin.model.social_media'
+            prompt: 'Add new item'
+            span: full
+            type: repeater
+            tab: 'codeclutch.contact::lang.plugin.model.social_media'
+            form:
+                fields:
+                    icon:
+                        label: 'codeclutch.contact::lang.plugin.model.select_icon'
+                        type: zakir_allfonticons
+                        placeholder: 'codeclutch.contact::lang.plugin.model.select'
+                    url:
+                        label: URL
+                        span: full
+                        type: text
