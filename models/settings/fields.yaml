@@ -41,3 +41,19 @@ tabs:
                         label: URL
                         span: full
                         type: text
+        custom_fields:
+            tab: 'codeclutch.contact::lang.plugin.model.custom_fields'
+            type: repeater
+            form:
+                fields:
+                    fields_label:
+                        label: 'codeclutch.contact::lang.plugin.model.label'
+                        type: text
+                        span: auto
+                    fields_name:
+                        label: 'codeclutch.contact::lang.plugin.model.name'
+                        type: text
+                        span: auto
+                    is_required:
+                        type: switch
+                        label: Is required

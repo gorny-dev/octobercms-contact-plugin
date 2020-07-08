@@ -1,0 +1,6 @@
+plugin:
+    name: 'Contact'
+    description: 'Contact plugin created by infopasja'
+    author: infopasja
+    icon: oc-icon-home
+    homepage: ''

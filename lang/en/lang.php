@@ -13,7 +13,22 @@ return [
             'address_postcode' => 'Post code',
             'address_city' => 'City',
             'select_icon' => 'Select icon',
-            'select' => 'Select'
+            'select' => 'Select',
+            'custom_fields' => 'Custom form fields',
+            'label' => 'Label',
+            'name' => 'Name'
+        ],
+        'messages' => [
+            'label' => 'Messages',
+
+        ],
+        'contact_form' => [
+            'name' => 'Contact form',
+            'description' => 'Contact form component',
+            'errors' => [
+                'required' => ' is required'
+            ],
+            'success' => 'Your message has been sent successfully.'
         ]
     ]
 

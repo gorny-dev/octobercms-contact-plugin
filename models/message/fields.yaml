@@ -1,0 +1,28 @@
+fields:
+    created_at:
+        label: 'Created at'
+        span: full
+        disabled: 1
+        type: text
+    name:
+        label: Name
+        span: auto
+        type: text
+    email:
+        label: E-mail
+        span: auto
+        type: text
+    custom_fields:
+        label: 'Custom fields'
+        size: ''
+        span: auto
+        type: textarea
+    content:
+        label: Content
+        size: ''
+        span: auto
+        type: textarea
+    is_read:
+        label: Read
+        span: auto
+        type: switch

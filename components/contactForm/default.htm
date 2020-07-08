@@ -1,0 +1,47 @@
+<p class="success">{{msg}}</p>
+<form
+    data-request="onSend"
+    data-request-validate
+    data-request-flash>
+    <label>
+        imię i nazwisko
+        <span style="color: red;">
+            {{ errors.first('name') }}
+        </span>
+        <input type="text" name="name" value="{{ form_value('name') }}">
+
+    </label>
+    <label>
+        e-mail
+        <span style="color: red;">
+            {{ errors.first('email') }}
+        </span>
+        <input type="text" name="email" value="{{ form_value('email') }}">
+
+    </label>
+    {% if custom_fields %}
+    {% for field in custom_fields %}
+    <label>
+        {{field.fields_label}}
+        <span style="color: red;">
+            {{ errors.first(field.fields_name) }}
+        </span>
+        <input type="text" name="{{field.fields_name}}" value="{{ form_value(field.fields_name) }}">
+
+    </label>
+    {% endfor %}
+    {% endif %}
+    <label>
+        content
+        <span style="color: red;">
+            {{ errors.first(field.content) }}
+        </span>
+        <textarea name="content">
+        {{ form_value('content') }}
+        </textarea>
+
+    </label>
+    <button>
+        Wyślij
+    </button>
+</form>

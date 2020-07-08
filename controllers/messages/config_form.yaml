@@ -1,0 +1,10 @@
+name: Messages
+form: $/codeclutch/contact/models/message/fields.yaml
+modelClass: Codeclutch\Contact\Models\Message
+defaultRedirect: codeclutch/contact/messages
+create:
+    redirect: 'codeclutch/contact/messages/update/:id'
+    redirectClose: codeclutch/contact/messages
+update:
+    redirect: codeclutch/contact/messages
+    redirectClose: codeclutch/contact/messages

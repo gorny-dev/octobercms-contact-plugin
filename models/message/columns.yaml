@@ -1,0 +1,19 @@
+columns:
+    created_at:
+        label: 'Created at'
+        type: datetime
+        searchable: false
+        sortable: true
+    name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    email:
+        label: E-mail
+        type: text
+        searchable: true
+        sortable: true
+    is_read:
+        label: 'Is read'
+        type: switch
