@@ -1,5 +1,4 @@
-<?php
-return [
+<?php return [
     'plugin' => [
         'name' => 'Contact',
         'description' => 'Contact plugin created by codeclutch',
@@ -16,20 +15,29 @@ return [
             'select' => 'Select',
             'custom_fields' => 'Custom form fields',
             'label' => 'Label',
-            'name' => 'Name'
+            'name' => 'Name',
         ],
         'messages' => [
             'label' => 'Messages',
-
         ],
         'contact_form' => [
             'name' => 'Contact form',
             'description' => 'Contact form component',
             'errors' => [
-                'required' => ' is required'
+                'required' => ' is required',
             ],
-            'success' => 'Your message has been sent successfully.'
-        ]
-    ]
-
+            'success' => 'Your message has been sent successfully.',
+        ],
+    ],
+    'custom_fields' => 'Custom fields',
+    'name' => 'Name',
+    'value' => 'Value',
+    'contact_form_config' => 'Contact form configuration',
+    'custom_form_fileds' => 'Custom fields',
+    'is_required' => 'is required',
+    'is_receiver' => 'is receiver',
+    'receivers' => 'Receivers',
+    'email' => 'E-mail',
+    'is_receiver_comment' => 'If receivers will be disabled, mails will be sent to the first receiver',
+    'receiver' => 'Receiver',
 ];

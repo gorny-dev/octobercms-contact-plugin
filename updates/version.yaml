@@ -5,3 +5,6 @@
 1.0.3:
     - 'Add is_read property'
     - builder_table_update_codeclutch_contact_messages.php
+1.0.4:
+    - 'Updated table codeclutch_contact_messages'
+    - builder_table_update_codeclutch_contact_messages_2.php

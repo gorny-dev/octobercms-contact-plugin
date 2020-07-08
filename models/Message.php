@@ -16,6 +16,7 @@ class Message extends Model
 
     public $table = 'codeclutch_contact_messages';
 
+    protected $jsonable = ['custom_fields'];
 
     public $rules = [
         'name' => 'required|min:4|max:30',

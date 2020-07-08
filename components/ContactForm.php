@@ -5,6 +5,7 @@ namespace Codeclutch\Contact\Components;
 use Cms\Classes\ComponentBase;
 use Codeclutch\Contact\Models\Message;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
 use Validator;
 use Lang;
 use Input;
@@ -24,8 +25,15 @@ class ContactForm extends ComponentBase
 
     public function onRender()
     {
+        $settings = Settings::instance();
+
         /* Get custom fields for view */
-        $this->page['custom_fields'] = Settings::instance()->custom_fields;
+        $this->page['custom_fields'] = $settings->custom_fields;
+
+        /* Get receivers */
+        if ($settings->is_receiver) {
+            $this->page['receivers'] = $settings->receivers;
+        }
 
         /* Get the message after sending message */
         $this->page['msg'] = \Session::get('msg');
@@ -47,16 +55,23 @@ class ContactForm extends ComponentBase
         }
 
         /* Add values from custom fields to $received_data array */
-        foreach (Settings::instance()->custom_fields as $field) {
-            $received_data[$field['fields_name']] = Input::get($field['fields_name'], null);
+        $custom_fields = Settings::instance()->custom_fields;
+        if ($custom_fields) {
+            foreach ($custom_fields as $field) {
+                $received_data[$field['fields_name']] = Input::get($field['fields_name'], null);
+            }
         }
 
         /* Create a new message model */
         $message = new Message();
+
+        /* Create rules for validator */
         $rules = $message->rules;
-        foreach (Settings::instance()->custom_fields as $field) {
-            if ($field['is_required']) {
-                $rules[$field['fields_name']] = 'required';
+        if ($custom_fields) {
+            foreach (Settings::instance()->custom_fields as $field) {
+                if ($field['is_required']) {
+                    $rules[$field['fields_name']] = 'required';
+                }
             }
         }
 
@@ -74,15 +89,50 @@ class ContactForm extends ComponentBase
                 if (Arr::has($basics, $field)) {
                     $message[$field] = $value;
                 } else {
-                    $message['custom_fields'] .= " " . $field . ": " . $value . ";";
+                    /* Create a textarea from custom fields */
+                    $message['custom_fields'] .= $field . ': ' . $value . ' &#13;&#10;';
                 }
             }
         }
 
-        /* Send message and return the successful message */
+        /*** Send message and return the successful message ***/
+
+        /* Set vars array */
+        $vars = [];
+        foreach ($received_data as $key => $value) {
+            $vars[$key] = $value;
+        }
+
+        /* Set the receiver */
+        $settings = Settings::instance();
+        if ($settings->is_receiver) {       /* Taking chosen receiver */
+            $receiver_name = Input::get('receiver');
+            $receivers = $settings->receivers;
+            foreach ($receivers as $receiver) {
+                if ($receiver['name'] == $receiver_name) {
+                    $receiver_mail = $receiver['email'];
+                }
+            }
+        } else {                            /* Taking the first receiver */
+            $receiver_mail = $settings->receivers[0]['email'];
+            $receiver_name = $settings->receivers[0]['name'];
+        }
+
+        /* Send message */
         if ($message->save()) {
+            if (isset($receiver_mail)) {    /* Send message under condition receiver_mail is defined */
+                Mail::send('codeclutch.contactform.message', $vars, function ($message) use (
+                    $receiver_name,
+                    $receiver_mail
+                ) {
+                    $message->to($receiver_mail, $receiver_name);
+                });
+            }
             return \Redirect::back()->
             with('msg', Lang::get('codeclutch.contact::lang.plugin.contact_form.success'));
-        };
+        } else {
+            return \Redirect::back()->
+            with('msg', Lang::get('codeclutch.contact::lang.plugin.contact_form.error'));
+        }
     }
 }

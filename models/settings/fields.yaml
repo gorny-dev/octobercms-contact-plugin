@@ -41,9 +41,18 @@ tabs:
                         label: URL
                         span: full
                         type: text
+        is_receiver:
+            label: 'codeclutch.contact::lang.is_receiver'
+            span: right
+            type: switch
+            comment: 'codeclutch.contact::lang.is_receiver_comment'
+            tab: 'codeclutch.contact::lang.contact_form_config'
         custom_fields:
-            tab: 'codeclutch.contact::lang.plugin.model.custom_fields'
+            label: 'codeclutch.contact::lang.custom_form_fileds'
+            prompt: 'Add new item'
+            span: left
             type: repeater
+            tab: 'codeclutch.contact::lang.contact_form_config'
             form:
                 fields:
                     fields_label:
@@ -55,5 +64,24 @@ tabs:
                         type: text
                         span: auto
                     is_required:
+                        label: 'codeclutch.contact::lang.is_required'
+                        span: full
                         type: switch
-                        label: Is required
+        receivers:
+            label: 'codeclutch.contact::lang.receivers'
+            oc.commentPosition: below
+            prompt: 'Add new item'
+            span: auto
+            hidden: 0
+            type: repeater
+            tab: 'codeclutch.contact::lang.contact_form_config'
+            form:
+                fields:
+                    name:
+                        label: 'codeclutch.contact::lang.plugin.model.name'
+                        span: auto
+                        type: text
+                    email:
+                        label: 'codeclutch.contact::lang.email'
+                        span: auto
+                        type: text

@@ -19,6 +19,16 @@
         <input type="text" name="email" value="{{ form_value('email') }}">
 
     </label>
+    {% if receivers %}
+        <label>
+            odbiorca
+            <select name="receiver">
+                {% for receiver in receivers %}
+                    <option value="{{receiver.name}}">{{receiver.name}}</option>
+                {% endfor %}
+            </select>
+        </label>
+    {% endif %}
     {% if custom_fields %}
     {% for field in custom_fields %}
     <label>
@@ -34,7 +44,7 @@
     <label>
         content
         <span style="color: red;">
-            {{ errors.first(field.content) }}
+            {{ errors.first('content') }}
         </span>
         <textarea name="content">
         {{ form_value('content') }}
