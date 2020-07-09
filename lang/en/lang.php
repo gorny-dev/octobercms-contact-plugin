@@ -41,4 +41,5 @@
     'is_receiver_comment' => 'If receivers will be disabled, mails will be sent to the first receiver',
     'receiver' => 'Receiver',
     'phone' => 'Phone',
+    'country' => 'Country',
 ];

@@ -33,6 +33,11 @@ tabs:
             span: auto
             type: text
             tab: 'codeclutch.contact::lang.plugin.model.address'
+        country:
+            label: 'codeclutch.contact::lang.country'
+            span: auto
+            type: text
+            tab: 'codeclutch.contact::lang.plugin.model.address'
         social_media:
             label: 'codeclutch.contact::lang.plugin.model.social_media'
             prompt: 'Add new item'
@@ -84,8 +89,8 @@ tabs:
             tab: 'codeclutch.contact::lang.receivers'
             form:
                 fields:
-                    receivers:
-                        label: 'codeclutch.contact::lang.receivers'
+                    name:
+                        label: 'codeclutch.contact::lang.name'
                         prompt: 'Add new item'
                         span: auto
                         hidden: 0

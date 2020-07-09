@@ -1,0 +1,49 @@
+{{are_receivers}}
+<ul class="company-information">
+    {% if information.logo %}
+    <li class="company-information__item company-information__item--logo">
+        <img src="{{information.logo.thumb(500, auto)}}" alt="logo">
+    </li>
+    {% endif %}
+    <li class="company-information__item">
+        {{information.company_name}}
+    </li>
+    <li class="company-information__item">
+        {% if are_icons %}
+        <i class="fa fa-at"></i>
+        {% endif %}
+        {{information.email}}
+    </li>
+    <li class="company-information__item">
+        {% if are_icons %}
+        <i class="fa fa-phone"></i>
+        {% endif %}
+        {{information.phone}}
+    </li>
+    <li class="company-information__item">
+        {% if are_icons %}
+        <i class="fa fa-location-arrow"></i>
+        {% endif %}
+        {{information.street}} {{information.number}}<br>
+        {{information.post_code}}, {{information.city}}
+    </li>
+    <li class="company-information__item">{{information.country}}</li>
+</ul>
+
+{% if are_receivers %}
+<ul class="company-information-receivers">
+    {% for receiver in information.receivers %}
+
+    <li class="company-information-receivers__item">
+        {% if __SELF__.property('are_icons') %}
+        <i class="fa fa-user"></i>
+        {% endif %}
+        <div>
+            <p>{{receiver.name}}</p>
+            <p>{{receiver.email}}</p>
+            <p>{{receiver.phone}}</p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

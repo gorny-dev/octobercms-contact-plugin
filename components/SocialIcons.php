@@ -5,6 +5,7 @@ namespace Codeclutch\Contact\Components;
 
 use Cms\Classes\ComponentBase;
 use Codeclutch\Contact\Models\Settings;
+use Lang;
 
 class SocialIcons extends ComponentBase
 {

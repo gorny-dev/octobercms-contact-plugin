@@ -52,9 +52,10 @@ class Plugin extends PluginBase
     {
         return [
             'Codeclutch\Contact\Components\ContactForm' => 'contactForm',
-            'Codeclutch\Contact\Components\SocialIcons' => 'socialIcons'
+            'Codeclutch\Contact\Components\SocialIcons' => 'socialIcons',
+            'Codeclutch\Contact\Components\companyInformation' => 'companyInformation'
         ];
     }
 
-    public $require = ['Zakir.AllFontIcons'];
+    public $require = ['Zakir.AllFontIcons', 'Codeclutch.Base'];
 }
