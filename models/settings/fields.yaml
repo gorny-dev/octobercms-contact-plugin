@@ -3,6 +3,14 @@ fields:
         label: 'codeclutch.contact::lang.plugin.model.company_name'
         span: full
         type: text
+    phone:
+        label: 'codeclutch.contact::lang.phone'
+        span: auto
+        type: text
+    email:
+        label: 'codeclutch.contact::lang.email'
+        span: auto
+        type: text
 tabs:
     fields:
         address_street:
@@ -41,12 +49,6 @@ tabs:
                         label: URL
                         span: full
                         type: text
-        is_receiver:
-            label: 'codeclutch.contact::lang.is_receiver'
-            span: right
-            type: switch
-            comment: 'codeclutch.contact::lang.is_receiver_comment'
-            tab: 'codeclutch.contact::lang.contact_form_config'
         custom_fields:
             label: 'codeclutch.contact::lang.custom_form_fileds'
             prompt: 'Add new item'
@@ -67,21 +69,33 @@ tabs:
                         label: 'codeclutch.contact::lang.is_required'
                         span: full
                         type: switch
+        is_receiver:
+            label: 'codeclutch.contact::lang.is_receiver'
+            span: full
+            type: switch
+            comment: 'codeclutch.contact::lang.is_receiver_comment'
+            tab: 'codeclutch.contact::lang.receivers'
         receivers:
             label: 'codeclutch.contact::lang.receivers'
-            oc.commentPosition: below
             prompt: 'Add new item'
             span: auto
             hidden: 0
             type: repeater
-            tab: 'codeclutch.contact::lang.contact_form_config'
+            tab: 'codeclutch.contact::lang.receivers'
             form:
                 fields:
-                    name:
-                        label: 'codeclutch.contact::lang.plugin.model.name'
+                    receivers:
+                        label: 'codeclutch.contact::lang.receivers'
+                        prompt: 'Add new item'
                         span: auto
+                        hidden: 0
                         type: text
+                        tab: 'codeclutch.contact::lang.contact_form_config'
                     email:
                         label: 'codeclutch.contact::lang.email'
+                        span: auto
+                        type: text
+                    phone:
+                        label: 'codeclutch.contact::lang.phone'
                         span: auto
                         type: text

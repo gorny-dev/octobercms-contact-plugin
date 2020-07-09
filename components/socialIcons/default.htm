@@ -1,0 +1,10 @@
+<ul>
+    {% for icon in socialIcons.getIconsArray %}
+    <li>
+        <a href="{{icon.url}}" target="_blank">
+            <i class="{{icon.icon}}">
+            </i>
+        </a>
+    </li>
+    {% endfor %}
+</ul>

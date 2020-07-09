@@ -51,7 +51,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Codeclutch\Contact\Components\ContactForm' => 'contactForm'
+            'Codeclutch\Contact\Components\ContactForm' => 'contactForm',
+            'Codeclutch\Contact\Components\SocialIcons' => 'socialIcons'
         ];
     }
 
