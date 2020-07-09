@@ -55,5 +55,5 @@ class Plugin extends PluginBase
         ];
     }
 
+    public $require = ['Zakir.AllFontIcons'];
 }
-
